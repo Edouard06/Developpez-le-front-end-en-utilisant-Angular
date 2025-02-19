@@ -49,7 +49,7 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
                 source: this.lineChartData,
                 xAxis: {
                   dataField: 'year',
-                  unitInterval: 4,
+                  unitInterval: 20,
                   tickMarks: { visible: true },
                   gridLines: { visible: true }
                 },
@@ -57,7 +57,7 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
                   {
                     type: 'line',
                     series: [
-                      { dataField: 'medals', displayText: 'Médailles' }
+                      { dataField: 'medals', displayText: 'Médailles', labelsVisible: false }
                     ]
                   }
                 ]
