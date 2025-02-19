@@ -1,0 +1,23 @@
+<div *ngIf="countryData" class="country-detail">
+    <h2>Détails pour {{ countryData.country }}</h2>
+    <p>Nombre de participations : {{ countryData.participation.length }}</p>
+    <p>Total de médailles : {{ getTotalMedals() }}</p>
+    <p>Total d'athlètes : {{ getTotalAthletes() }}</p>
+  
+    <div style="width: 100%; max-width: 600px; margin: auto;">
+      <jqxChart 
+        [width]="'100%'" 
+        [height]="400"
+        [title]="lineChartSettings?.title"
+        [description]="lineChartSettings?.description"
+        [enableAnimations]="lineChartSettings?.enableAnimations"
+        [showLegend]="lineChartSettings?.showLegend"
+        [source]="lineChartSettings?.source"
+        [xAxis]="lineChartSettings?.xAxis"
+        [seriesGroups]="lineChartSettings?.seriesGroups">
+      </jqxChart>
+    </div>
+  
+    <button (click)="goBack()">Retour</button>
+  </div>
+  

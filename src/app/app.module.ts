@@ -5,10 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-
+import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
+import { CountryDetailComponent } from './pages/country-detail/country-detail.component';
 @NgModule({
-  declarations: [AppComponent, HomeComponent, NotFoundComponent],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  declarations: [AppComponent, HomeComponent, NotFoundComponent, CountryDetailComponent],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, jqxChartModule ],
   providers: [],
   bootstrap: [AppComponent],
 })

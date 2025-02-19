@@ -2,14 +2,15 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { OlympicCountry } from '../models/olympic';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-  private olympics$ = new BehaviorSubject<any>(undefined);
-
+  private olympics$ = new BehaviorSubject<OlympicCountry[] | null>(null);
+  
   constructor(private http: HttpClient) {}
 
   loadInitialData() {
