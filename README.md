@@ -1,29 +1,23 @@
-# OlympicGamesStarter
+Cette application Angular permet de visualiser les statistiques des Jeux Olympiques à travers deux pages principales :
+- Un **Dashboard** affichant un graphique circulaire (pie chart) qui présente, pour chaque pays, le nombre total de médailles.
+- Une **Page Détail** qui affiche les informations détaillées pour un pays sélectionné, notamment un graphique linéaire illustrant l'évolution des médailles au fil des éditions.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+**Prérequis nécessaires** : 
 
-Don't forget to install your node_modules before starting (`npm install`).
+- **Node.js** (version 14.x ou supérieure recommandée)  
+- **Angular CLI**  
+  
+**Installation**
+Cloner le dépôt :
+Copier
+git clone git@github.com:Edouard06/Developpez-le-front-end-en-utilisant-Angular.git
+cd olympic-games-starter
 
-## Development server
+Installer les dépendances :
+Copier
+npm install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Where to start
-
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
-
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
-
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
-
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
-
-You're now ready to implement the requested features.
-
-Good luck!
+**Ouvrir l'application**
+Faite code . depuis votre terminal
+Ensuite faite ng serve
+Et ouvrez le localhost sur votre navigateur préféré.
