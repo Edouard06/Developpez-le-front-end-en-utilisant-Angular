@@ -102,7 +102,11 @@
               "node_modules/jqwidgets-scripts/jqwidgets/styles/jqx.light.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jqwidgets-scripts/jqwidgets/jqxcore.js",
+              "node_modules/jqwidgets-scripts/jqwidgets/jqxdata.js",
+              "node_modules/jqwidgets-scripts/jqwidgets/jqxchart.js"
+            ]
           }
         }
       }

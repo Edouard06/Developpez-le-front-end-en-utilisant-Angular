@@ -2,17 +2,17 @@
     <h1>Dashboard des Jeux Olympiques</h1>
     <p>Visualisation du nombre total de médailles par pays.</p>
     
-    <div style="width: 100%; max-width: 600px; margin: auto;">
+    <div style="width: 100%; max-width: 600px; margin: auto;" *ngIf="pieChartSettings">
       <jqxChart 
         [width]="'100%'" 
         [height]="400"
-        [title]="pieChartSettings?.title"
-        [description]="pieChartSettings?.description"
-        [enableAnimations]="pieChartSettings?.enableAnimations"
-        [showLegend]="pieChartSettings?.showLegend"
-        [source]="pieChartSettings?.source"
-        [colorScheme]="pieChartSettings?.colorScheme"
-        [seriesGroups]="pieChartSettings?.seriesGroups"
+        [title]="pieChartSettings.title"
+        [description]="pieChartSettings.description"
+        [enableAnimations]="pieChartSettings.enableAnimations"
+        [showLegend]="pieChartSettings.showLegend"
+        [source]="pieChartSettings.source"
+        [colorScheme]="pieChartSettings.colorScheme"
+        [seriesGroups]="pieChartSettings.seriesGroups"
         (onClick)="onChartClick($event)">
       </jqxChart>
     </div>

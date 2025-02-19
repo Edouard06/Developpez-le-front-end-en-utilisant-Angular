@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
         // Calculer le total des médailles pour chaque pays
         // this.chartData = data.map(country => ({
         //   country: country.country,
-        //   medals: country.participation.reduce((sum, p) => sum + p.medalsCount, 0)
+        //   medals: country.participations.reduce((sum, p) => sum + p.medalsCount, 0)
         // }));
 
         this.chartData = data.map(country => ({
