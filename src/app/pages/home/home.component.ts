@@ -11,9 +11,7 @@ import { OlympicCountry } from 'src/app/core/models/olympic';
 })
 export class HomeComponent implements OnInit {
   countries: OlympicCountry[] = [];
-  // Données formatées pour le chart
   chartData: any[] = [];
-  // Objet de configuration pour jqxChart (pie chart)
   pieChartSettings: any;
 
   constructor(
@@ -25,12 +23,6 @@ export class HomeComponent implements OnInit {
     this.olympicService.getOlympics().subscribe((data) => {
       if (data) {
         this.countries = data;
-        // Calculer le total des médailles pour chaque pays
-        // this.chartData = data.map(country => ({
-        //   country: country.country,
-        //   medals: country.participations.reduce((sum, p) => sum + p.medalsCount, 0)
-        // }));
-
         this.chartData = data.map(country => ({
           country: country.country,
           medals: Array.isArray(country.participations)
@@ -49,9 +41,7 @@ export class HomeComponent implements OnInit {
           seriesGroups: [
             {
               type: 'pie',
-              // Afficher les labels sur les tranches
               showLabels: true,
-              // Afficher un tooltip au survol
               showToolTips: true,
               series: [
                 {
@@ -61,18 +51,11 @@ export class HomeComponent implements OnInit {
                   initialAngle: 15,
                   radius: 120,
                   centerOffset: 0,
-                  /** 
-                   * formatFunction : détermine le texte affiché 
-                   * directement sur la tranche. 
-                   */
+                  
                   formatFunction: (value: any, itemIndex: number, series: any, group: any) => {
-                    // Ici, on n'affiche que le nom du pays
                     return this.chartData[itemIndex].country;
                   },
-                  /**
-                   * toolTipFormatFunction : détermine le texte du tooltip 
-                   * lors du survol d'une tranche.
-                   */
+                  
                   toolTipFormatFunction: (
                     value: any,
                     itemIndex: number,
@@ -81,7 +64,6 @@ export class HomeComponent implements OnInit {
                     categoryValue: any,
                     categoryAxis: any
                   ) => {
-                    // Affiche "Pays : X médailles"
                     return this.chartData[itemIndex].country + ": " + value + " médailles";
                   }
                 }

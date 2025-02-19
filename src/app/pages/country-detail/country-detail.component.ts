@@ -14,9 +14,7 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
   countryId!: number;
   countryData!: OlympicCountry | undefined;
   subscription!: Subscription;
-  // Données pour le graphique en ligne
   lineChartData: any[] = [];
-  // Configuration du jqxChart pour le line chart
   lineChartSettings: any;
 
   constructor(
@@ -34,13 +32,11 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
           if (countries) {
             this.countryData = countries.find(c => c.id === this.countryId);
             if (this.countryData) {
-              // Préparation des données : pour chaque participation, créer un objet { year, medals }
               this.lineChartData = this.countryData.participations.map(p => ({
                 year: p.year.toString(),
                 medals: p.medalsCount
               }));
 
-              // Configuration du jqxChart pour un graphique en ligne
               this.lineChartSettings = {
                 title: "Évolution des médailles",
                 description: "Nombre de médailles par édition",
@@ -66,7 +62,6 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
           }
         });
       } else {
-        // Redirection vers le Dashboard en cas d'absence d'id
         this.router.navigate(['/']);
       }
     });
