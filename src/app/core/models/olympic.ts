@@ -13,5 +13,5 @@ import { Participation } from './participation';
 export interface OlympicCountry {
     id: number;
     country: string;
-    participation: Participation[];
+    participations: Participation[];
 }

@@ -33,8 +33,8 @@ export class HomeComponent implements OnInit {
 
         this.chartData = data.map(country => ({
           country: country.country,
-          medals: Array.isArray(country.participation)
-            ? country.participation.reduce((sum, p) => sum + p.medalsCount, 0)
+          medals: Array.isArray(country.participations)
+            ? country.participations.reduce((sum, p) => sum + p.medalsCount, 0)
             : 0
         }));
         

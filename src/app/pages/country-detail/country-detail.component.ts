@@ -35,7 +35,7 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
             this.countryData = countries.find(c => c.id === this.countryId);
             if (this.countryData) {
               // Préparation des données : pour chaque participation, créer un objet { year, medals }
-              this.lineChartData = this.countryData.participation.map(p => ({
+              this.lineChartData = this.countryData.participations.map(p => ({
                 year: p.year.toString(),
                 medals: p.medalsCount
               }));
@@ -73,11 +73,11 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
   }
 
   getTotalMedals(): number {
-    return this.countryData ? this.countryData.participation.reduce((sum, p) => sum + p.medalsCount, 0) : 0;
+    return this.countryData ? this.countryData.participations.reduce((sum, p) => sum + p.medalsCount, 0) : 0;
   }
 
   getTotalAthletes(): number {
-    return this.countryData ? this.countryData.participation.reduce((sum, p) => sum + p.athleteCount, 0) : 0;
+    return this.countryData ? this.countryData.participations.reduce((sum, p) => sum + p.athleteCount, 0) : 0;
   }
 
   goBack(): void {
