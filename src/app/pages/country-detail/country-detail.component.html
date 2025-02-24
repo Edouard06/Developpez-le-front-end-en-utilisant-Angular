@@ -7,17 +7,7 @@
   </div>
 
   <div style="width: 100%; max-width: 600px; margin: auto;" *ngIf="lineChartSettings">
-    <jqxChart 
-      [width]="'100%'" 
-      [height]="400"
-      [title]="lineChartSettings.title"
-      [description]="lineChartSettings.description"
-      [enableAnimations]="lineChartSettings.enableAnimations"
-      [showLegend]="lineChartSettings.showLegend"
-      [source]="lineChartSettings.source"
-      [xAxis]="lineChartSettings.xAxis"
-      [seriesGroups]="lineChartSettings.seriesGroups">
-    </jqxChart>
+    <app-line-chart [settings]="lineChartSettings"></app-line-chart>
   </div>
 
   <div class="return-button-container">

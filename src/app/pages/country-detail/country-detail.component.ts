@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/olympic';
+import { LineChartComponent } from 'src/app/components/line-chart/line-chart.component';
 
 interface LineChartData {
   year: string;

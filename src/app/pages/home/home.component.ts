@@ -1,46 +1,11 @@
+// ... vos imports existants
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/olympic';
-
-interface ChartData {
-  country: string;
-  medals: number;
-}
-
-interface PieChartSettings {
-  title: string;
-  description: string;
-  enableAnimations: boolean;
-  showLegend: boolean;
-  source: ChartData[];
-  colorScheme: string;
-  seriesGroups: Array<{
-    type: string;
-    showLabels: boolean;
-    showToolTips: boolean;
-    labelFormat: string;
-    formatFunction: (value: number, itemIndex: number) => string;
-    toolTipFormatFunction: (value: number, itemIndex: number) => string;
-    series: Array<{
-      dataField: string;
-      labelRadius: number;
-      initialAngle: number;
-      radius: number;
-      centerOffset: number;
-    }>;
-  }>;
-}
-
-interface JqxChartEventArgs {
-  elementIndex?: number;
-}
-
-interface JqxChartEvent {
-  args?: JqxChartEventArgs;
-}
+import { ChartData, PieChartSettings } from 'src/app/components/pie-chart/pie-chart.component';
 
 @Component({
   selector: 'app-home',
@@ -116,9 +81,10 @@ export class HomeComponent implements OnInit, OnDestroy {
     };
   }
 
-  public onChartClick(event: JqxChartEvent): void {
-    if (event.args && typeof event.args.elementIndex === 'number') {
-      const index: number = event.args.elementIndex;
+  public onChartClick(event: any): void {
+    const args = event.args;
+    if (args && typeof args.elementIndex === 'number') {
+      const index: number = args.elementIndex;
       const selectedCountry: OlympicCountry | undefined = this.countries[index];
       if (selectedCountry) {
         this.router.navigate(['/detail', selectedCountry.id]);
