@@ -55,7 +55,7 @@ export interface JqxChartEvent {
         [seriesGroups]="settings.seriesGroups"
         (onClick)="handleChartClick($event)">
       </jqxChart>
-    </div>
+    </div> 
   `,
   standalone: true,
   imports: [CommonModule, jqxChartModule]  
