@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, ViewChild } from '@angular/core';
-import { CommonModule } from '@angular/common';  
+import { CommonModule } from '@angular/common';
 import { jqxChartComponent, jqxChartModule } from 'jqwidgets-ng/jqxchart';
 
 export interface ChartData {
@@ -41,24 +41,10 @@ export interface JqxChartEvent {
 
 @Component({
   selector: 'app-pie-chart',
-  template: `
-    <div style="width: 100%; max-width: 600px; margin: auto;" *ngIf="settings">
-      <jqxChart #chart
-        [width]="'100%'"
-        [height]="400"
-        [title]="settings.title"
-        [description]="settings.description"
-        [enableAnimations]="settings.enableAnimations"
-        [showLegend]="settings.showLegend"
-        [source]="settings.source"
-        [colorScheme]="settings.colorScheme"
-        [seriesGroups]="settings.seriesGroups"
-        (onClick)="handleChartClick($event)">
-      </jqxChart>
-    </div> 
-  `,
+  templateUrl: './pie-chart.component.html',
+  styleUrls: ['./pie-chart.component.scss'],
   standalone: true,
-  imports: [CommonModule, jqxChartModule]  
+  imports: [CommonModule, jqxChartModule]
 })
 export class PieChartComponent {
   @Input() settings!: PieChartSettings;

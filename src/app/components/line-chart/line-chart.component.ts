@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { jqxChartModule } from 'jqwidgets-ng/jqxchart';
-import { CommonModule } from '@angular/common';  
 
 export interface LineChartData {
   year: string;
@@ -39,23 +39,10 @@ export interface LineChartSettings {
 
 @Component({
   selector: 'app-line-chart',
-  template: `
-    <div style="width: 100%; max-width: 600px; margin: auto;" *ngIf="settings">
-      <jqxChart 
-        [width]="'100%'" 
-        [height]="400"
-        [title]="settings.title"
-        [description]="settings.description"
-        [enableAnimations]="settings.enableAnimations"
-        [showLegend]="settings.showLegend"
-        [source]="settings.source"
-        [xAxis]="settings.xAxis"
-        [seriesGroups]="settings.seriesGroups">
-      </jqxChart>
-    </div>
-  `,
+  templateUrl: './line-chart.component.html',
+  styleUrls: ['./line-chart.component.scss'],
   standalone: true,
-  imports: [jqxChartModule, CommonModule]
+  imports: [CommonModule, jqxChartModule]
 })
 export class LineChartComponent {
   @Input() settings!: LineChartSettings;
