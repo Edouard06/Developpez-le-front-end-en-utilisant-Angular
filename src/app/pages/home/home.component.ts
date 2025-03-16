@@ -1,4 +1,3 @@
-// ... vos imports existants
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
@@ -70,7 +69,7 @@ export class HomeComponent implements OnInit, OnDestroy {
           series: [
             {
               dataField: 'medals',
-              labelRadius: 120,
+              labelRadius: 130,
               initialAngle: 15,
               radius: 120,
               centerOffset: 0

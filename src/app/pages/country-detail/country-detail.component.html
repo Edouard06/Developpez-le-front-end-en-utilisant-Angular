@@ -6,7 +6,7 @@
     <p>Total d'athlètes : {{ getTotalAthletes() }}</p>
   </div>
 
-  <div style="width: 100%; max-width: 600px; margin: auto;" *ngIf="lineChartSettings">
+  <div class="chart-container" *ngIf="lineChartSettings">
     <app-line-chart [settings]="lineChartSettings"></app-line-chart>
   </div>
 

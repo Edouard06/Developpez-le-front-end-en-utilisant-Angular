@@ -106,7 +106,7 @@ export class CountryDetailComponent implements OnInit, OnDestroy {
       source: this.lineChartData,
       xAxis: {
         dataField: 'year',
-        unitInterval: 20,
+        unitInterval: 4,
         tickMarks: { visible: true },
         gridLines: { visible: true }
       },

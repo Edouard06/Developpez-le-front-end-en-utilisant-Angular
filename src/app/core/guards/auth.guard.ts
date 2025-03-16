@@ -12,7 +12,6 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-// alert('coucou');
     const idParam: string | null = route.paramMap.get('id');
 
     if (!idParam || isNaN(+idParam) || +idParam <= 0) {
