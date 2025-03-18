@@ -63,9 +63,6 @@ export class HomeComponent implements OnInit, OnDestroy {
       showLegend: true,
       source: this.chartData,
       colorScheme: 'scheme06',
-      backgroundColor: '#FFFFFF',     
-      borderLineColor: 'transparent',
-      borderLineWidth: 0,
       seriesGroups: [
         {
           type: 'pie',
