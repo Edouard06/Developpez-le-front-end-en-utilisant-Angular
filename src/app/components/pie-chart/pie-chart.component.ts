@@ -7,9 +7,9 @@ export interface ChartData {
   medals: number;
 }
 
-export interface PieChartSettings {
-  title: string;
-  description: string;
+export interface PieChartSettings { 
+  title?: string;
+  description?: string;     
   enableAnimations: boolean;
   showLegend: boolean;
   source: ChartData[];

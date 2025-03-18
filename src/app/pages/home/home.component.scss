@@ -1,18 +1,64 @@
-.dashboard-header {
+$teal-color: #008b8b;
+
+.dashboard-container {
+  text-align: center;
+  margin: 0 auto;
+  max-width: 1000px;
+}
+
+.subtitle-container {
+  background-color: $teal-color;
+  display: inline-block; 
+  padding: 0.3rem 0.6rem;
+  border-radius: 8px;
+  margin: 2rem auto 0.5rem auto;
+
+  .subtitle {
+    color: #fff;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 400;
+  }
+}
+
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+
+  .stats-box {
+    background-color: #fff;
+    border: 2px solid $teal-color;
+    border-radius: 8px;
+    width: 180px;
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Vous pouvez changer cette police */
-    margin-bottom: 2rem;
-  
-    h1 {
-      font-size: 2.5rem;
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 0.5rem;
+
+    .stats-title {
+      font-size: 1rem;
+      color: #333;
+      margin: 0;
     }
-  
-    p {
-      font-size: 1.2rem;
-      color: #34495e;
+
+    .stats-value {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      margin: 0.5rem 0 0;
     }
   }
-  
+}
+
+.chart-container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+:host ::ng-deep .jqx-chart-title-text,
+:host ::ng-deep .jqx-chart-title-description {
+  fill: transparent !important;
+}
+

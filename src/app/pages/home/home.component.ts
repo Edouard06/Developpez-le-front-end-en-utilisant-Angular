@@ -10,12 +10,15 @@ import { ChartData, PieChartSettings } from 'src/app/components/pie-chart/pie-ch
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
-  standalone: false
+  standalone: false  
 })
 export class HomeComponent implements OnInit, OnDestroy {
   public countries: OlympicCountry[] = [];
   public chartData: ChartData[] = [];
   public pieChartSettings!: PieChartSettings;
+  public numberOfCountries = 0;
+  public numberOfJOs = 0;
+
   private destroy$: Subject<void> = new Subject<void>();
 
   constructor(
@@ -33,6 +36,14 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe((data: OlympicCountry[] | null) => {
         if (data) {
           this.countries = data;
+          this.numberOfCountries = data.length;
+          const distinctYears = new Set<number>();
+          data.forEach(country => {
+            country.participations.forEach(part => {
+              distinctYears.add(part.year);
+            });
+          });
+          this.numberOfJOs = distinctYears.size;
           this.prepareChartData();
           this.configurePieChart();
         }
@@ -48,12 +59,13 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private configurePieChart(): void {
     this.pieChartSettings = {
-      title: "Total des médailles par pays",
-      description: "Visualisation du nombre total de médailles pour chaque pays",
       enableAnimations: true,
       showLegend: true,
       source: this.chartData,
-      colorScheme: 'scheme01',
+      colorScheme: 'scheme06',
+      backgroundColor: '#FFFFFF',     
+      borderLineColor: 'transparent',
+      borderLineWidth: 0,
       seriesGroups: [
         {
           type: 'pie',
@@ -71,7 +83,7 @@ export class HomeComponent implements OnInit, OnDestroy {
               dataField: 'medals',
               labelRadius: 130,
               initialAngle: 15,
-              radius: 120,
+              radius: 110,
               centerOffset: 0
             }
           ]

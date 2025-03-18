@@ -1,8 +1,20 @@
-<div class="dashboard-header">
-  <h1>Dashboard des Jeux Olympiques</h1>
-  <p>Visualisation du nombre total de médailles par pays.</p>
-  <app-pie-chart 
-    [settings]="pieChartSettings" 
-    (chartClick)="onChartClick($event)">
-  </app-pie-chart>
+<div class="dashboard-container">
+  <div class="subtitle-container">
+    <p class="subtitle">Medals per Country</p>
+  </div>
+
+  <div class="stats-container">
+    <div class="stats-box">
+      <p class="stats-title">Number of JOs</p>
+      <p class="stats-value">{{ numberOfJOs }}</p>
+    </div>
+    <div class="stats-box">
+      <p class="stats-title">Number of countries</p>
+      <p class="stats-value">{{ numberOfCountries }}</p>
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <app-pie-chart [settings]="pieChartSettings" (chartClick)="onChartClick($event)"></app-pie-chart>
+  </div>
 </div>
