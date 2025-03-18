@@ -1,33 +1,30 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, throwError } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
-import { OlympicCountry } from '../models/olympic'; // ✅ Typage fort
+import { OlympicCountry } from '../models/olympic';
 
 @Injectable({
   providedIn: 'root',
 })
 export class OlympicService {
   private olympicUrl = './assets/mock/olympic.json';
-
   private olympics$ = new BehaviorSubject<OlympicCountry[] | null>(null);
-
+  
   constructor(private http: HttpClient) {}
 
-  
-  loadInitialData(): Observable<OlympicCountry[]> {
-    return this.http.get<OlympicCountry[]>(this.olympicUrl).pipe(
-      tap((data) => this.olympics$.next(data)),
-      catchError((error) => {
-        console.error('[OlympicService] Error loading data :', error);
+  loadInitialData() {
+    return this.http.get<any>(this.olympicUrl).pipe(
+      tap((value) => this.olympics$.next(value)),
+      catchError((error, caught) => {
+        console.error(error);
         this.olympics$.next(null);
-        return throwError(() => new Error('Error loading olympic data :.'));
+        return caught;
       })
     );
   }
 
- 
-  getOlympics(): Observable<OlympicCountry[] | null> {
+  getOlympics() {
     return this.olympics$.asObservable();
   }
 }
