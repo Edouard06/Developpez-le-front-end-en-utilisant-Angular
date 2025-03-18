@@ -1,15 +1,31 @@
-<div *ngIf="countryData" class="country-detail">
-  <div class="country-detail-header">
-    <h2>Détails pour {{ countryData.country }}</h2>
-    <p>Nombre de participations : {{ countryData.participations.length }}</p>
-    <p>Total de médailles : {{ getTotalMedals() }}</p>
-    <p>Total d'athlètes : {{ getTotalAthletes() }}</p>
+<div class="detail-container" *ngIf="countryData">
+  <!-- Bandeau teal avec le nom du pays -->
+  <div class="subtitle-container">
+    <p class="subtitle">{{ countryData.country }}</p>
   </div>
 
+  <!-- Trois bulles statistiques -->
+  <div class="stats-container">
+    <div class="stats-box">
+      <p class="stats-title">Number of entries</p>
+      <p class="stats-value">{{ countryData.participations.length }}</p>
+    </div>
+    <div class="stats-box">
+      <p class="stats-title">Total number medals</p>
+      <p class="stats-value">{{ getTotalMedals() }}</p>
+    </div>
+    <div class="stats-box">
+      <p class="stats-title">Total number of athletes</p>
+      <p class="stats-value">{{ getTotalAthletes() }}</p>
+    </div>
+  </div>
+
+  <!-- Graphique en ligne (si vous utilisez un LineChartComponent) -->
   <div class="chart-container" *ngIf="lineChartSettings">
     <app-line-chart [settings]="lineChartSettings"></app-line-chart>
   </div>
 
+  <!-- Bouton Retour -->
   <div class="return-button-container">
     <button class="btn-return" (click)="goBack()">Retour</button>
   </div>

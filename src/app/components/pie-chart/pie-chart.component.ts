@@ -14,6 +14,9 @@ export interface PieChartSettings {
   showLegend: boolean;
   source: ChartData[];
   colorScheme: string;
+  backgroundColor?: string;
+  borderLineColor?: string;
+  borderLineWidth?: number;
   seriesGroups: Array<{
     type: string;
     showLabels: boolean;

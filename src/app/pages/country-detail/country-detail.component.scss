@@ -1,46 +1,91 @@
-.country-detail-header {
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-bottom: 2rem;
-  
-    h2 {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #2c3e50;
-      margin-bottom: 1rem;
-    }
-  
-    p {
-      font-size: 1.2rem;
-      color: #34495e;
-      margin: 0.3rem 0;
-    }
-  }
-  
-  .return-button-container {
-    text-align: center;
-    margin-top: 2rem;
-  }
-  
-  .btn-return {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    background-color: #3498db;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-  }
-  
-  .btn-return:hover {
-    background-color: #2980b9;
-    transform: scale(1.05);
-  }
-  
-  .chart-container {
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-  }
+
+ $teal-color: #008b8b;
+
+ 
+ .detail-container {
+   text-align: center;
+   margin: 0 auto;
+   max-width: 1000px;
+ }
+ 
+
+ .subtitle-container {
+   background-color: $teal-color;
+   display: inline-block;
+   padding: 0.4rem 0.8rem;
+   border-radius: 8px;
+   margin: 2rem auto 1rem auto;
+ 
+   .subtitle {
+     color: #fff;
+     font-size: 1.5rem; 
+     margin: 0;
+     font-weight: 400;  
+   }
+ }
+ 
+
+ .stats-container {
+   display: flex;
+   justify-content: center;
+   gap: 2rem;
+   margin-bottom: 2rem;
+   margin-top: 1rem;
+ 
+   .stats-box {
+     background-color: #fff;
+     border: 2px solid $teal-color;
+     border-radius: 8px;
+     width: 180px;
+     text-align: center;
+     padding: 0.5rem 0.8rem; 
+ 
+     .stats-title {
+       font-size: 1rem;
+       color: #333;
+       margin: 0;
+       font-weight: 400;
+     }
+ 
+     .stats-value {
+       font-size: 1.5rem;
+       font-weight: bold;
+       color: #333;
+       margin: 0.5rem 0 0;
+     }
+   }
+ }
+
+ .chart-container {
+   margin: 0 auto;
+   width: 100%;
+   max-width: 600px;
+   margin-bottom: 2rem;
+ }
+
+ .return-button-container {
+   text-align: center;
+   margin-top: 2rem;
+ 
+   .btn-return {
+     padding: 0.8rem 1.5rem;
+     font-size: 1rem;
+     font-weight: bold;
+     background-color: $teal-color;
+     border: none;
+     border-radius: 5px;
+     color: #fff;
+     cursor: pointer;
+     transition: background-color 0.3s ease, transform 0.2s ease;
+ 
+     &:hover {
+       background-color: darken($teal-color, 10%);
+       transform: scale(1.05);
+     }
+   }
+ }
+ 
+ :host ::ng-deep .jqx-chart-title-text,
+:host ::ng-deep .jqx-chart-title-description {
+  fill: transparent !important;  /* ou display: none !important; */
+}
